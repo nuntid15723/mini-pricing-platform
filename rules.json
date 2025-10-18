@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "type": "WeightTier",
+    "priority": 1,
+    "effective_from": "2025-01-01",
+    "effective_to": "2025-12-31",
+    "is_active": true,
+    "config": {
+      "tiers": [
+        { "min_weight": 0, "max_weight": 10, "price_per_kg": 5 },
+        { "min_weight": 10, "max_weight": 30, "price_per_kg": 4 },
+        { "min_weight": 30, "max_weight": 100, "price_per_kg": 3.5 }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "type": "RemoteAreaSurcharge",
+    "priority": 2,
+    "effective_from": "2025-01-01",
+    "effective_to": "2025-12-31",
+    "is_active": true,
+    "config": {
+      "areas": ["CNX", "HKT", "KBV"],
+      "surcharge": 50
+    }
+  },
+  {
+    "id": 3,
+    "type": "TimeWindowPromotion",
+    "priority": 3,
+    "effective_from": "2025-10-01",
+    "effective_to": "2025-10-31",
+    "is_active": true,
+    "config": {
+      "discount_percent": 10
+    }
+  }
+]

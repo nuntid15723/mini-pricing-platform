@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "69108a10-96d5-4bfd-b56d-2a1178ca7427",
+		"name": "Mini Pricing Platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26962421",
+		"_collection_link": "https://restless-firefly-224627.postman.co/workspace/Team-Workspace~b7dd4434-d728-409e-870d-837d658eee97/collection/26962421-69108a10-96d5-4bfd-b56d-2a1178ca7427?action=share&source=collection_link&creator=26962421"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Rules",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/rules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"rules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Rule ID",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create Rule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// [\r\n//     {\r\n//         \"id\": 1,\r\n//         \"type\": \"WeightTier\",\r\n//         \"priority\": 1,\r\n//         \"effective_from\": \"2025-01-01\",\r\n//         \"effective_to\": \"2025-12-31\",\r\n//         \"is_active\": true,\r\n//         \"config\": {\r\n//             \"min_weight\": 0,\r\n//             \"max_weight\": 10,\r\n//             \"price_per_kg\": 5\r\n//         }\r\n//     },\r\n//     {\r\n//         \"id\": 2,\r\n//         \"type\": \"TimeWindowPromotion\",\r\n//         \"priority\": 2,\r\n//         \"effective_from\": \"2025-10-01\",\r\n//         \"effective_to\": \"2025-12-31\",\r\n//         \"is_active\": true,\r\n//         \"config\": {\r\n//             \"min_weight\": 0,\r\n//             \"max_weight\": 10,\r\n//             \"price_per_kg\": 8\r\n//         }\r\n//     },\r\n//     {\r\n//         \"id\": 3,\r\n//         \"type\": \"RemoteAreaSurcharge\",\r\n//         \"priority\": 3,\r\n//         \"effective_from\": \"2025-10-01\",\r\n//         \"effective_to\": \"2025-12-31\",\r\n//         \"is_active\": true,\r\n//         \"config\": {\r\n//             \"min_weight\": 0,\r\n//             \"max_weight\": 10,\r\n//             \"price_per_kg\": 10\r\n//         }\r\n//     }\r\n// ]\r\n{\r\n        \"id\": 4,\r\n        \"type\": \"RemoteAreaSurcharge\",\r\n        \"priority\": 3,\r\n        \"effective_from\": \"2025-10-01\",\r\n        \"effective_to\": \"2025-12-31\",\r\n        \"is_active\": true,\r\n        \"config\": {\r\n            \"min_weight\": 0,\r\n            \"max_weight\": 10,\r\n            \"price_per_kg\": 10\r\n        }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/rules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"rules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Rule",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"type\": \"TimeWindowPromotion\",\r\n    \"priority\": 2,\r\n    \"effective_from\": \"2025-10-01\",\r\n    \"effective_to\": \"2025-12-31\",\r\n    \"is_active\": true,\r\n    \"config\": {\r\n        \"min_weight\": 0,\r\n        \"max_weight\": 10,\r\n        \"price_per_kg\": 8\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/rules/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"rules",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Rule",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/rules/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"rules",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calculate Price",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"origin\": \"BKK\",\r\n  \"destination\": \"CNX\",\r\n  \"weight\": 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/quotes/price",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"quotes",
+						"price"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Bulk Job",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  { \"origin\": \"BKK\", \"destination\": \"CNX\", \"weight\": 5 },\r\n  { \"origin\": \"BKK\", \"destination\": \"HKT\", \"weight\": 15 }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/quotes/bulk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"quotes",
+						"bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Bulk Job",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/quotes/jobs/JOB_1760608986570",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"quotes",
+						"jobs",
+						"JOB_1760608986570"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
